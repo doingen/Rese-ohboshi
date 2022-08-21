@@ -1,0 +1,574 @@
+body {
+  position: relative;
+  margin: 30px 40px;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.appName {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 21px;
+  font-size: 2.3em;
+  color: rgb(48, 93, 255);
+}
+
+.appName a:visited {
+  color: inherit;
+}
+
+.menu {
+  position: absolute;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  align-items: center;
+  text-align: center;
+  transform: translateX(-100%);
+  transition: ease .4s;
+}
+
+.menu.active {
+  transform: translateX(0);
+  z-index: 999;
+}
+
+.menu__inner {
+  margin-top: 15%;
+}
+
+.menu__inner li {
+  margin-bottom: 20px;
+  font-size: 2em;
+  list-style: none;
+}
+
+.menu__inner a {
+  color: rgb(48, 93, 255);
+}
+
+.menu__inner button {
+  border: none;
+  background-color: white;
+  color: rgb(48, 93, 255);
+  font-size: 2rem;
+}
+
+.hamburger {
+  position: relative;
+  margin-right: 1em;
+  width: 36px;
+  height: 36px;
+  background-color: rgb(48, 93, 255);
+  border-color: transparent;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px gray;
+  z-index: 9999;
+}
+
+.hamburger:hover {
+  cursor: pointer;
+}
+
+.hamburger span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: white;
+  transition: ease .4s;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0;
+  width: 60%;
+}
+
+.hamburger span:nth-child(2) {
+  margin: 5px 0;
+}
+
+.hamburger span:nth-child(3) {
+  top: 0;
+  width: 25%;
+}
+
+.hamburger.active {
+  position: fixed;
+}
+
+.hamburger.active span:nth-child(1) {
+  width: 100%;
+  top: 6px;
+  transform: rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  width: 100%;
+  top: -6px;
+  transform: rotate(-45deg);
+}
+
+.pageLeft, .pageRight {
+  width: 45%;
+}
+
+.card {
+  width: 20vw;
+  height: 20vw;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 2px 2px 7px gray;
+}
+
+.card--top {
+  height: 60%;
+}
+
+.card--top img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px 5px 0 0;
+  object-fit: cover;
+}
+
+.card--bottom {
+  padding: 7% 5% 5% 5%;
+}
+
+.card--bottom p {
+  margin-bottom: 6px;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.card--bottom span {
+  font-size: 0.8em;
+}
+
+.card--buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card--detail {
+  display: inline-block;
+  margin-top: 0.6em;
+  padding: 0.5em 0.6em;
+  background-color: rgb(70, 70, 255);
+  border-radius: 5px;
+  color: white;
+  font-size: 0.9em;
+}
+
+.card--fav {
+  margin-top: 1.1em;
+  background-color: white;
+}
+
+.alert_notice {
+  display: inline-block;
+  margin-top: 1em;
+  margin-left: 15%;
+  padding: 0.3em 1em;
+  background-color: rgb(243, 231, 231);
+  font-size: 0.9rem;
+  color: red;
+}
+
+.alert_reserve {
+  display: inline-block;
+  margin-bottom: 0.8em;
+  padding: 0.3em 1em;
+  background-color: rgb(243, 231, 231);
+  font-size: 0.9rem;
+  color: red;
+}
+
+.alert_success {
+  display: inline-block;
+  padding: 0.3em 1em;
+  background-color: rgb(231, 243, 235);
+  font-size: 0.9rem;
+  color: rgb(9, 185, 9);
+}
+
+
+/* shopのCSS */
+
+.shop__search-box {
+  position: absolute;
+  top: 0;
+  right: 5%;
+  display: inline-block;
+  padding: 10px 20px;
+  width: 38%;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 2px 2px 7px gray;
+}
+
+.shop__search-box select {
+  margin-right: 10px;
+  border: none;
+  outline: none;
+}
+
+.shop__search-box img {
+  vertical-align: middle;
+  width: 14px;
+  height: 14px;
+}
+
+.shop__search-box input {
+  width: 35%;
+}
+
+.shop__wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 2em;
+}
+
+/* shop_detailのCSS */
+
+.shop_detail__content {
+  margin-top: 1.7em;
+}
+
+.shop_detail__content-title {
+  margin-bottom: 1rem;
+}
+
+.shop_detail__shop-name {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1.4em;
+}
+
+.shop_detail__content a {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+  width: 1.5em;
+  height: 1.5em;
+  border: 1px solid lightgray;
+  border-radius: 0.1em;
+  box-shadow: 1px 1px 5px gray;
+  text-align: center;
+  line-height: 1.5em;
+  font-size: 0.7em;
+}
+
+.shop_detail__content img {
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.shop_detail__content p {
+  margin-top: 1em;
+  line-height: 1.3em;
+}
+
+.shop_detail__pageRight {
+  position: relative;
+  background-color: rgb(48, 93, 255);
+  border-radius: 0.5em;
+  box-shadow: 2px 2px 7px gray;
+  color: white;
+}
+
+.shop_detail__form {
+  padding: 0 2em;
+}
+
+.shop_detail__form h2 {
+  padding: 1.5em 0;
+}
+
+.shop_detail__form input, .shop_detail__form select {
+  margin-bottom: 0.7em;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+.shop_detail__form input:first-of-type {
+  width: 40%;
+}
+
+.shop_detail__form input:nth-of-type(2), .shop_detail__form select:last-of-type{
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.shop_detail__confirm {
+  padding: 1em;
+  background-color: rgb(77, 127, 255);
+  border-radius: 0.5em;
+}
+
+.shop_detail__confirm span:not(.shop_detail__confirm span:last-of-type) {
+  margin-bottom: 0.5em;
+}
+
+.shop_detail__confirm span {
+  display: inline-block;
+  width: 30%;
+}
+
+.shop_detail__confirm p {
+  display: inline-block;
+  width: 70%;
+}
+
+.shop_detail__reserve-button {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 8%;
+  border: 1px solid rgb(5, 56, 255);
+  border-radius: 0 0 0.5em 0.5em;
+  background-color: rgb(5, 56, 255);
+  color: white;
+}
+
+
+/* thanks_registerとthanks_reserveのCSS */
+
+.thanks__container {
+  display: flex;
+  margin: 3em auto;
+  width: 30%;
+  height: 12em;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 2px 2px 7px gray;
+  align-items: center;
+  text-align: center;
+}
+
+.thanks__item {
+  margin: 0 auto;
+}
+
+.thanks__item p {
+  margin-bottom: 1em;
+}
+
+.thanks__item a {
+  display: inline-block;
+  padding: 0.5em 0.7em;
+  width: 3em;
+  background-color: rgb(48, 93, 255);
+  border-radius: 3px;
+  color: white;
+}
+
+
+/* mypageのCSS */
+
+.pageLeft h3, .pageRight h3 {
+  margin-bottom: 1em;
+  font-size: 1.2em;
+}
+
+.mypage__pageLeft {
+  margin-top: 4.5em;
+}
+
+.mypage__reservation {
+  position: relative;
+  margin-bottom: 1em;
+  padding: 2em;
+  background-color: rgb(77, 127, 255);
+  border-radius: 0.5em;
+  color: white;
+  box-shadow: 2px 2px 7px gray;
+}
+
+.mypage__reservation--num {
+  display: inline-block;
+  margin: 0 0 2em 1.3em;
+}
+
+.mypage__reservation--delete {
+  position: absolute;
+  top: 2em;
+  right: 2em;
+}
+
+.fa-circle-xmark {
+  color: white;
+}
+
+.mypage__confirm span:not(.mypage__confirm span:last-of-type) {
+  margin-bottom: 1.5em;
+}
+
+.mypage__confirm span {
+  display: inline-block;
+  width: 30%;
+}
+
+.mypage__confirm p {
+  display: inline-block;
+  width: 70%;
+}
+
+.mypage__pageRight h2 {
+  margin: 1.5em 0;
+  font-size: 1.3em;
+}
+
+.mypage__wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+
+/* registerとloginのCSS */
+
+.auth__box {
+  margin: 8em auto;
+  width: 35%;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 2px 2px 7px gray;
+}
+
+.auth__title {
+  padding: 0.8em 0.8em;
+  border: none;
+  border-radius: 5px 5px 0 0 ;
+  background-color: rgb(48, 93, 255);
+  color: white;
+  font-size: 1.4em;
+}
+
+.auth__item--inner {
+  margin: 1em auto;
+  width: 80%;
+  font-size: 1.6em;
+}
+
+.auth__item form {
+  margin: 0 auto;
+}
+
+.auth__input {
+  margin-bottom: 1em;
+}
+
+.auth__input i {
+  margin-right: 0.5em;
+  width: 1em;
+}
+
+.auth__input input {
+  width: 85%;
+  border-bottom: 1px solid gray;
+}
+
+.auth__button {
+  margin-right: 1em;
+  padding: 0.5em 0.7em;
+  border: 1px solid rgb(48, 93, 255);
+  border-radius: 5px;
+  background-color: rgb(48, 93, 255);
+  color: white;
+}
+
+.register__button {
+  display: block;
+  margin: 0 13% 1.5em auto;
+}
+
+.auth__bottom {
+  text-align: right;
+}
+
+.auth__bottom a {
+  margin-right: 2em;
+  font-size: 0.9rem;
+  color: rgb(48, 93, 255);
+}
+
+
+@media screen and (max-width:768px) {
+  header {
+    padding-left: 10px;
+  }
+
+
+  main {
+    padding: 0 2%;
+  }
+
+  .menu__inner {
+    margin-top: 25%;
+  }
+  .card {
+    width: 40vw;
+    height: 40vw;
+  }
+
+  .shop__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin: 2em auto;
+  }
+
+  .shop__search-box {
+    position: static;
+    display: block;
+    margin: 1em auto 0 auto;
+    width: 95%;
+    box-sizing: border-box;
+  }
+
+  .shop_detail__confirm {
+    font-size: 0.9em;
+  }
+
+  .mypage__wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .thanks__container {
+    width: 50%;
+  }
+
+  .auth__box {
+    margin: 5em auto;
+    width: 70%;
+  }
+}

@@ -21,7 +21,7 @@
           @endif 
         </div>
         <div class="auth__input">
-          <i class="fa-solid fa-lock"></i><input type="text" name="password" placeholder="Password">
+          <i class="fa-solid fa-lock"></i><input type="password" name="password" placeholder="Password">
           @if($errors->has('password'))
             <p class="alert_notice">{{$errors->first('password')}}</p><br>
           @endif

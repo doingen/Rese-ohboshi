@@ -1,8 +1,6 @@
 @extends('layouts.layout')
 
 @section('contents')
-<link rel="stylesheet" href="{{asset('css/reset.css')}}">
-<link rel="stylesheet" href="{{asset('css/layout.css')}}">
 <title>{{$item->name}}</title>
 <main>
   <div class="pageLeft">
@@ -58,7 +56,7 @@
       <button class="shop_detail__reserve-button">予約する</button>
     </form>
   </div>
-  <script src="{{asset('js/shop_detail.js')}}"></script>
+  <script src="/js/shop_detail.js"></script>
 </main>
 @endsection
 
